@@ -1,0 +1,64 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+
+.left-bar {
+    position: fixed;
+    margin-top: 1%;
+    margin-left: 5%;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.logo {
+    width: 90%;
+    margin-left: 5%;
+    margin-left: 5%;
+}
+
+.advertisement {
+    width: 90%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-left: 5%;
+}
+
+.right-bar {
+    margin-top: 1%;
+    margin-right: 5%;
+    width: 60%;
+    float: right;
+}
+
+nav {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+nav a {
+    font-size: x-large;
+    color: black;
+    margin-left: 5%;
+}
+
+.title {
+    text-align: center;
+    margin-top: 3%;
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+article {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+a:hover {
+    color: yellow;
+}
+
+footer {
+    clear: both;
+}

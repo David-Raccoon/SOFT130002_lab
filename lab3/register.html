@@ -1,62 +1,67 @@
 <html>
+
 <head>
     <meta charset="utf8">
     <title>Register</title>
-    <link href="./style.css" rel="stylesheet" type="text/css">
+    <link href="./css/reset.css" rel="stylesheet" type="text/css">
+    <link href="./css/register.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<header>
-    <nav class="div-left"><a href="lab3.html">主页</a></nav>
-</header>
-<h1>创建帐户</h1>
-<section class="contents">
-<form action="#" method="GET">
-    <p>
-        您当前的电子邮件地址<br>
-        <input type="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
-    </p>
-    <p>
-        请设置密码<br>
-        <input type="password" name="password">
-    </p>
-    <p>
-        请确认密码<br>
-        <input type="password" name="repassword">
-    </p>
-    <p>
-        您的居住地<br>
-        <select name="area">
-            <option value="asia">亚洲</option>
-            <option value="europe">欧洲</option>
-            <option value="africa">非洲</option>
-            <option value="north-america">北美洲</option>
-            <option value="south-america">南美洲</option>
-            <option value="oceania">大洋洲</option>
-            <option value="others">其他地方</option>
-        </select>
-    </p>
-    <p>
-        您常用的支付方式<br>
-        <input type="checkbox" name="credit" value="credit">信用卡
-        <input type="checkbox" name="paypal" value="paypal">PayPal
-        <input type="checkbox" name="alipay" value="alipay">支付宝
-        <input type="checkbox" name="wechat" value="wechat">微信支付
-    </p>
 
-    <p>
-        您的出生日期<br>
-        <input type="date" name="birthday">
-    </p>
-    <p>
-        输入答案<br>
-        residue of 1/(z^2+4)^2 at z=2i<br>
-        <input type="text" name="captcha">
-        <input type="button" value="刷新">
-    </p>
-    <p>
-        请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。
-    </p>
-    <textarea disabled="true">
+<body>
+    <div class="banner">创建帐户</div>
+
+    <section class="contents">
+        <form action="#" method="GET">
+            <div class="left-bar">
+                <p>
+                    您当前的电子邮件地址<br>
+                    <input type="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+                        required>
+                </p>
+                <p>
+                    请设置密码<br>
+                    <input type="password" name="password">
+                </p>
+                <p>
+                    请确认密码<br>
+                    <input type="password" name="repassword">
+                </p>
+                <p>
+                    您的居住地<br>
+                    <select name="area">
+                        <option value="asia">亚洲</option>
+                        <option value="europe">欧洲</option>
+                        <option value="africa">非洲</option>
+                        <option value="north-america">北美洲</option>
+                        <option value="south-america">南美洲</option>
+                        <option value="oceania">大洋洲</option>
+                        <option value="others">其他地方</option>
+                    </select>
+                </p>
+                <p>
+                    您常用的支付方式<br>
+                    <input type="checkbox" name="credit" value="credit">信用卡
+                    <input type="checkbox" name="paypal" value="paypal">PayPal
+                    <input type="checkbox" name="alipay" value="alipay">支付宝
+                    <input type="checkbox" name="wechat" value="wechat">微信支付
+                </p>
+
+                <p>
+                    您的出生日期<br>
+                    <input type="date" name="birthday">
+                </p>
+                <p>
+                    输入答案<br> residue of 1/(z^2+4)^2 at z=2i<br>
+                    <input type="text" name="captcha">
+                    <input type="button" value="刷新">
+                </p>
+
+            </div>
+            <div class="right-bar">
+                <p>
+                    请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。
+                </p>
+                <textarea disabled="true">
 STEAM® SUBSCRIBER AGREEMENT
 
 Table of contents:
@@ -355,14 +360,19 @@ Valve’s obligations are subject to existing laws and legal process and Valve m
 You agree to comply with all applicable import/export laws and regulations. You agree not to export the Content and Services or Hardware or allow use of your Account by individuals of any terrorist supporting countries to which encryption exports are at the time of exportation restricted by the U.S. Bureau of Export Administration. You represent and warrant that you are not located in, under the control of, or a national or resident of any such prohibited country.
 
 This Agreement was last updated on November 13th, 2018 ("Revision Date"). If you were a Subscriber before the Revision Date, it replaces your existing agreement with Valve or Valve SARL on the day that you explicitly accept it. If you prefer to continue using Steam and your existing Subscriptions under the version of the Agreement in effect prior to the Revision Date, you are free to do so.
-</textarea>
-<br>
-<input type="radio" value="agree" name="agree">同意
-<input type="radio" value="disagree" name="agree">不同意
-<p>
-<input type="submit" value="继续" name="continue">
-</p>
-</form>
-</section>
+                </textarea>
+                <br>
+                <input type="radio" value="agree" name="agree">同意
+                <input type="radio" value="disagree" name="agree">不同意
+            </div>
+            <p class="button">
+                <input type="submit" value="继续" name="continue">
+            </p>
+        </form>
+    </section>
+    <footer>
+        <a href="./index.html">回到主页</a>
+    </footer>
 </body>
+
 </html>
