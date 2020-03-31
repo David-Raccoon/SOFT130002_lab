@@ -1,0 +1,29 @@
+.navbar-brand{
+    padding: 6px 6px;
+}
+
+#carousel-example-generic{
+    width: 98%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+.demo-list{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-image: url("img/background.jpg");
+    background-repeat: repeat-x repeat-y;
+}
+
+footer{
+    margin-top: 1%;
+    padding-top: 1em;
+    background-color: #333333;
+}
+.copyright{
+    color: white;
+    text-align: center;
+}
+footer a{
+    color: white;
+}
