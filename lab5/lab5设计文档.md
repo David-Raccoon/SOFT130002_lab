@@ -3,7 +3,7 @@
 18307130214 王涵章
 ## 网页效果截图：
 
-![lab5_handin](https://github.com/David-Raccoon/SOFT130002_lab/blob/master/lab5/lab5_handin.png)
+![lab5_handin](./lab5_handin.png)
 
 ## 知识点总结：
 
