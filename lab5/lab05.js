@@ -8,9 +8,25 @@
 let url = document.getElementById("url");
 let url_submit = document.getElementById("url_submit");
 let url_result = document.getElementById("url-result");
-url_submit.addEventListener('click',showWindowHref);
-function showWindowHref(){
-
+url_submit.addEventListener('click', showWindowHref);
+function showWindowHref() {
+    var str = new String(url.value);
+    var args = str.split('?')[1];
+    if (args == null) {
+        url_result.value = 'No Argument in the url.';
+        return;
+    }
+    argArray = args.split('&');
+    var argObj;
+    for (var i = 0; i < argArray.length; i++) {
+        var key = argArray[i].split('=')[0];
+        console.log(key);
+        if (key === 'name') {
+            url_result.value = argArray[i].split('=')[1];
+            return;
+        }
+    }
+    url_result.value = 'No Argument of \'name\'.';
 }
 //2. 每隔五秒运行一次函数直到某一整分钟停止，比如从20:55:45运行到20:56:00停止；或者运行10次，先到的为准。从1开始每过五秒，输入框内数值翻倍。初始值为1。
 //注意：你可以在函数 timeTest内部 和 timeTest外部 写代码使得该功能实现。
@@ -18,7 +34,19 @@ function showWindowHref(){
 
 //提示：mul为html中id为"mul"的元素对象，可直接通过mul.value获得其内的输入值。
 let mul = document.getElementById("mul");
-function timeTest(){
+mul.value = 1;
+let counter = 0;
+let date = new Date;
+let minute = date.getMinutes();
+var double = setInterval(timeTest, 5000);
+function timeTest() {
+    date = new Date;
+    if (counter == 10 || minute != date.getMinutes()) {
+        clearInterval(double);
+        return;
+    }
+    counter++;
+    mul.value *= 2;
 }
 //3. 判断输入框most里出现最多的字符，并统计出来。统计出是信息在most_result输入框内以"The most character is:" + index + " times:" + max的形式显示。
 //如果多个出现数量一样则选择一个即可。
@@ -28,7 +56,22 @@ function timeTest(){
 let most = document.getElementById("most");
 let result = document.getElementById("most-result");
 let most_submit = document.getElementById("most_submit");
-most_submit.addEventListener('click',arrSameStr);
-function arrSameStr(){
-
+most_submit.addEventListener('click', arrSameStr);
+function arrSameStr() {
+    var str = new String(most.value);
+    if (str == "")
+        result.value = 'No input string.'
+    var counter = new Object;
+    for (var i = 0; i < str.length; i++) {
+        if (counter[str.charAt(i)] == null)
+            counter[str.charAt(i)] = 1;
+        else
+            counter[str.charAt(i)]++;
+    }
+    var mostChar = null;
+    for (var c in counter) {
+        if (mostChar == null || counter[c] > counter[mostChar])
+            mostChar = c;
+    }
+    result.value = "The most character is:" + mostChar + " times:" + counter[mostChar];
 }
