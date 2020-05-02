@@ -10,10 +10,28 @@
     ②使用console.log打印计数即可，到达一分钟提前停止也需要console.log相应的提示语句。
 */
 
-function testTime(){
-
+function testTime() {
+    let value = 1;
+    let counter = 0;
+    let date = new Date;
+    let minute = date.getMinutes();
+    var multiple = setInterval(mul, 5000);
+    function mul() {
+        date = new Date;
+        if (counter == 10) {
+            clearInterval(multiple);
+            return;
+        }
+        if (minute != date.getMinutes()) {
+            console.log("A new minute now. Time out!")
+            clearInterval(multiple);
+            return;
+        }
+        counter++;
+        value *= 2;
+        console.log("Current value: " + value + "\tCurrent time: " + date.toTimeString() + "\tcount = " + counter);
+    }
 }
-// testTime();
 
 /*
 2.
@@ -23,8 +41,11 @@ function testTime(){
     ③邮箱字符串的正则匹配的理解需写入lab文档。
     ④telephone与mail均是字符串。
 */
-function testMail(telephone,mail) {
-
+function testMail(telephone, mail) {
+    console.log(`Input: ${telephone} ${mail}`);
+    let telReg = /^1[3456789][0-9]{9}$/;
+    let mailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    console.log(`The telephone is ${telReg.test(telephone) ? "right" : "wrong"} and the mail is ${mailReg.test(mail) ? "right" : "wrong"}`);
 }
 
 /*
@@ -37,7 +58,9 @@ function testMail(telephone,mail) {
     ⑤str为字符串。
 */
 function testRedundancy(str) {
-
+    console.log(`Input: ${str}`);
+    let re = /\b([a-z]+) \1\b/ig;
+    console.log(str.match(re));
 }
 
 
@@ -56,7 +79,15 @@ function testRedundancy(str) {
     ①注意联系生活，并注意观察我给的上述例子。
 */
 function testKeyBoard(wantInput, actualInput) {
-
+    console.log(`Input: ${wantInput} ${actualInput}`);
+    var broken = new Set();
+    var wantInputString = String(wantInput);
+    var actualInputString = String(actualInput);
+    for (let c of wantInputString) {
+        if (!(actualInputString.includes(c) || actualInputString.includes(c.toUpperCase())))
+            broken.add(c.toUpperCase());
+    }
+    console.log(broken.values());
 }
 
 /*
@@ -72,6 +103,16 @@ function testKeyBoard(wantInput, actualInput) {
     ⑤str为字符串。
 */
 function testSpecialReverse(str) {
+    console.log(`Input: ${str}`);
+    let words = new Array;
+    let re = / +/;
+    words = str.split(re).reverse();
+    let output = "";
+    for (let word of words) {
+        if (word !== "")
+            output += word + " ";
+    }
+    console.log(output);
 }
 
 /*
@@ -90,6 +131,14 @@ function testSpecialReverse(str) {
 */
 
 function twoSum(nums, target) {
+    console.log(`Input: ${nums} | ${target}`);
+    let result = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let j = nums.indexOf(target - nums[i]);
+        if (j > i)
+            result.set(i, j);
+    }
+    console.log(result.entries());
 }
 
 
@@ -99,12 +148,29 @@ function twoSum(nums, target) {
     打印最长的包含不同字符串的子字符串长度。
 要求：
     ①使用Map。
-    ②例如：输入"abbbbb",输出1，输入"bbbbb",输出2；
+    ②例如：输入"abbbbb",输出2，输入"bbbbb",输出1；
     ③只能显式使用一次循环。
     ④使用console.log打印即可。
     ⑤str为字符串。
 */
 function lengthOfLongestSubstring(str) {
+    console.log(`Input: ${str}`);
+    let subString = "";
+    let maxLength = 0;
+    for (let i = 0; i < str.length; i++) {
+        let index = subString.indexOf(str[i]);
+        if (index >= 0) {
+            if (maxLength < subString.length)
+                maxLength = subString.length;
+            if (index < str.length - 1)
+                subString = subString.substr(index + 1, str.length - index - 1);
+            else
+                subString = "";
+        }
+        else
+            subString += str[i];
+    }
+    console.log(`Substring: ${subString} Length: ${maxLength}`);
 }
 
 /*
@@ -119,3 +185,59 @@ function lengthOfLongestSubstring(str) {
 function Country() {
     this.name = "国家";
 }
+
+function DevelopingCountry() {
+    Country.apply(this, arguments);
+    this.sayHi = function () {
+        console.log("Hi,i am a developing country.");
+    }
+}
+
+function PoorCountry() { }
+PoorCountry.prototype = new Country();
+PoorCountry.prototype.saySad = function () {
+    console.log("I am a sad poor country.");
+};
+
+function DevelopedCountry() { }
+DevelopedCountry.prototype = Object.create(Country, {
+    sayHappy: {
+        value: function () {
+            console.log("I am a Happy developed country.");
+        }
+    }
+});
+function test() {
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 2: Mail Test");
+    testMail("13658014326", "820651854@qq.com");
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 3: Redundancy Test");
+    testRedundancy("Is is the iS is cost of of gasoline going up up");
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 4: Keybored Test");
+    testKeyBoard("7_This_is_a_test", "_hs_s_a_es");
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 5: Reverse Test");
+    testSpecialReverse("  hello  world!  ");
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 6: Two Sum");
+    twoSum([1, 2, 3, 4], 5);
+    twoSum([2, 3, 4, 2, 7, 5, 3, 3, 4], 7);
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 7: Sub String");
+    lengthOfLongestSubstring("aabbbcd");
+    lengthOfLongestSubstring("defgaaabbcde");
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 8: Inheritance");
+    let a = new DevelopingCountry();
+    a.sayHi();
+    a = new PoorCountry();
+    a.saySad();
+    a = new DevelopedCountry();
+    a.sayHappy();
+    console.log("-------------------------------------------------------------");
+    console.log("Problem 1: Time Test");
+    testTime();
+}
+test();
