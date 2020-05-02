@@ -45,4 +45,9 @@ Array是特殊的对象，它的键名是数，可以用下标的方式进行索
 ## 截图
 
 ### 程序运行结果
+
 ![lab6_result](./lab6_result.png)
+
+### github提交截图
+
+![github_handin](./github_handin.png)
