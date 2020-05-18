@@ -3,7 +3,14 @@
 /********************************************begin************************************/
 
 /*Global Variable Area */
-
+var current = 0;
+var prev = document.getElementsByTagName("a")[0];
+var next = document.getElementsByTagName("a")[1];
+var buttonList = document.getElementsByTagName("span");
+var targetPic = document.getElementsByTagName("img")[1];
+var picArea = document.getElementsByClassName("wrap")[0];
+var body = document.getElementsByTagName("body")[0];
+var intervalId;
 /*********************************************end*************************************/
 
 
@@ -23,6 +30,29 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+function setPic(current) {
+    let src = (current + 1) + ".jpg";
+    targetPic.setAttribute("src", src);
+}
+
+function turnNext() {
+    buttonList[current].classList.remove(["on"]);
+    current++;
+    if (current == 5) current = 0;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+}
+
+function turnPrev() {
+    buttonList[current].classList.remove(["on"]);
+    current--;
+    if (current == -1) current = 4;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+}
+
+next.onclick = turnNext;
+prev.onclick = turnPrev;
 
 /*********************************************end*************************************/
 
@@ -40,6 +70,17 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+body.onload = function () {
+    intervalId = setInterval(turnNext, 2000);
+};
+
+picArea.onmouseout = function () {
+    intervalId = setInterval(turnNext, 2000);
+}
+
+picArea.onmouseover = function () {
+    clearInterval(intervalId);
+}
 
 /*********************************************end*************************************/
 
@@ -54,7 +95,42 @@
  */
 /********************************************begin************************************/
 
+
 /*Code Here*/
+buttonList[0].onclick = function () {
+    buttonList[current].classList.remove(["on"]);
+    current = 0;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+};
+
+buttonList[1].onclick = function () {
+    buttonList[current].classList.remove(["on"]);
+    current = 1;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+};
+
+buttonList[2].onclick = function () {
+    buttonList[current].classList.remove(["on"]);
+    current = 2;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+};
+
+buttonList[3].onclick = function () {
+    buttonList[current].classList.remove(["on"]);
+    current = 3;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+};
+
+buttonList[4].onclick = function () {
+    buttonList[current].classList.remove(["on"]);
+    current = 4;
+    setPic(current);
+    buttonList[current].classList.add(["on"]);
+};
 
 /*********************************************end*************************************/
 
@@ -69,5 +145,16 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+$(function () {
+    $("td").click(function () {
+        var tdVal = $(this).text();
+        var oInput = $("<input type='text' value='" + tdVal + "'/>");
+        $(this).html(oInput);
+        oInput.focus();
+        oInput.blur(function () {
+            oInput.parent().html(oInput.val());
+        });
+    });
+})
 
 /*********************************************end*************************************/
