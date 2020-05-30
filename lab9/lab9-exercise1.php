@@ -8,10 +8,17 @@
 
 <h1>PHP section (inside &lt;?php ... ?&gt; tags)</h1>
 <?php
-//this is a php comment IN tags (will not appear)
-echo "This was output using PHP";
-echo "<br>"; //notice we must echo tags in php.
-
+//exercise 1-9
+ echo date("l, F S, o G:i:s")  . "<hr/>";
+ //exercise 1-10
+ $remaining = 365 - date("z");
+ echo "Exercise 1-10: ";
+ echo "There are ". $remaining . " days left in the year";
+ echo "<hr/>";
+ //exercise 1-11
+ echo "Exercise 1-11: ";
+ $remaining = 365 - date("z") + date("L");
+ echo "There are ". $remaining . " days left in the year";
 ?>
 </body>
 </html>
